@@ -1,11 +1,17 @@
 import React from "react";
 
-function TodoItem(){
-    return(
+function TodoItem(props) {
+    const stylingpart = {
+        color: "grey",
+        textDecoration: "line-through"
+    }
+    return (
         <div className="todo-item">
-            <input type = "checkbox"></input>
-            <p>Placeholder text</p>
-            
+            <input type = "checkbox" 
+                    checked = {props.item.completed} 
+                    onChange = {() => props.handlefunc(props.item.id)}/>
+            <p style={props.item.completed ? stylingpart : null}>{props.item.text}</p>
+
         </div>
     )
 }
